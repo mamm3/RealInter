@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/txtNombreSelec"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="24dp"/>
+
+            <LinearLayout
+                android:id="@+id/layGuaymasSerdan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/borde_circular"
+                android:padding="10dp"
+                android:clickable="true"
+                android:layout_marginBottom="7dp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp">
+
+                    <ImageView
+                        android:id="@+id/imgSerdan"
+                        android:layout_width="256px"
+                        android:layout_height="256px"
+                        android:layout_gravity="center"/>
+
+                </FrameLayout>
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="1">
+
+                    <TableRow>
+                    <TextView
+                        android:textSize="15dp"
+                        android:text="Guaymas (Serdan)"
+                        />
+                </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:textSize="15dp"
+                            android:text="Sonora Roll Sushi Restaruante"
+                            />
+                    </TableRow>
+                    <TableRow>
+                    <TextView
+                        android:textSize="15dp"
+                        android:text="Av. Aquiles Serdán 415, Centro,\n85400 Heroica Guaymas, Son."
+                        />
+                </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:textSize="15dp"
+                            android:text="622 137 7130"
+                            />
+                    </TableRow>
+                    <TableRow>
+                        <Button
+                            android:text="Ordenar aqui"
+                            android:textSize="15dp"
+                            android:background="@drawable/borde_circular"
+                            />
+                    </TableRow>
+                </TableLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layGuaymasCobacha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/borde_circular"
+                android:padding="10dp"
+                android:clickable="true"
+                android:layout_marginBottom="7dp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp">
+
+                    <ImageView
+                        android:id="@+id/imgCobacha"
+                        android:layout_width="256px"
+                        android:layout_height="256px"
+                        android:layout_gravity="center"/>
+
+                </FrameLayout>
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="1">
+
+                    <TableRow>
+                        <TextView
+                            android:textSize="15dp"
+                            android:text="Guaymas (Frente a Cobacha)"
+                            />
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:textSize="15dp"
+                            android:text="Sonora Roll Sushi"
+                            />
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:textSize="15dp"
+                            android:text="Loma Linda,\nHeroica Guaymas, Son."
+                            />
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:textSize="15dp"
+                            android:text="622 223 0752"
+                            />
+                    </TableRow>
+                    <TableRow>
+                        <Button
+                            android:text="Ordenar aqui"
+                            android:textSize="15dp"
+                            android:background="@drawable/borde_circular"
+                            />
+                    </TableRow>
+                </TableLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/laySanCarlos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/borde_circular"
+                android:padding="10dp"
+                android:clickable="true"
+                android:layout_marginBottom="7dp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp">
+
+                    <ImageView
+                        android:id="@+id/imgEmpalme"
+                        android:layout_width="256px"
+                        android:layout_height="256px"
+                        android:layout_gravity="center"/>
+
+                </FrameLayout>
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="1">
+
+                    <TableRow>
+                        <TextView
+                            android:textSize="15dp"
+                            android:text="Empalme"
+                            />
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:textSize="15dp"
+                            android:text="Mattoni/Sonora roll"
+                            />
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:textSize="15dp"
+                            android:text="Av Héroe de Nacozari 1, Moderna,\n85330 Empalme, Son."
+                            />
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:textSize="15dp"
+                            android:text="622 138 7484"
+                            />
+                    </TableRow>
+                    <TableRow>
+                        <Button
+                            android:text="Ordenar aqui"
+                            android:textSize="15dp"
+                            android:background="@drawable/borde_circular"
+                            />
+                    </TableRow>
+                </TableLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layEmpalme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/borde_circular"
+                android:padding="10dp"
+                android:clickable="true">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp">
+
+                    <ImageView
+                        android:id="@+id/imgSanCarlos"
+                        android:layout_width="256px"
+                        android:layout_height="256px"
+                        android:layout_gravity="center"/>
+
+                </FrameLayout>
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="1">
+
+                    <TableRow>
+                        <TextView
+                            android:textSize="15dp"
+                            android:text="San Carlos"
+                            />
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:textSize="15dp"
+                            android:text="Sonora Roll Sushi"
+                            />
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:textSize="15dp"
+                            android:text="Bulevard Manlio Fabio Beltrones,\nSector Creston,\nRanchito Campestre,\n85506 San Carlos, Son."
+                            />
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:textSize="15dp"
+                            android:text="622 226 0909"
+                            />
+                    </TableRow>
+                    <TableRow>
+                        <Button
+                            android:text="Ordenar aqui"
+                            android:textSize="15dp"
+                            android:background="@drawable/borde_circular"
+                            />
+                    </TableRow>
+                </TableLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

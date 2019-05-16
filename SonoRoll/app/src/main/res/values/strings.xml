@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Sonora Roll</string>
+    <string name="user">Correo</string>
+    <string name="password">Contraseña</string>
+    <string name="IS">Iniciar sesión</string>
+    <string name="Registrarte">Registrate</string>
+    <string name="nombres">Nombres</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="direccion">Dirección</string>
+    <string name="ciudad">Ciudad</string>
+    <string name="colonia">Colonia</string>
+    <string name="telefono">Telefono</string>
+</resources>
