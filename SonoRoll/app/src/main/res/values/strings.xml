@@ -10,4 +10,5 @@
     <string name="ciudad">Ciudad</string>
     <string name="colonia">Colonia</string>
     <string name="telefono">Telefono</string>
+    <string name="ip">192.168.0.16</string>
 </resources>

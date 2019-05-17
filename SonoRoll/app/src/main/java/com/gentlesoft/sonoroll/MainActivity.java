@@ -2,6 +2,7 @@ package com.gentlesoft.sonoroll;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -14,9 +15,22 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+import com.gentlesoft.sonoroll.entidades.Usuario;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
+    Usuario usuario = new Usuario();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         aS.start();
 
         ((Button)findViewById(R.id.btnRegistro)).setOnClickListener(this);
+        ((Button)findViewById(R.id.btnInicioS)).setOnClickListener(this);
 
     }
 
@@ -76,6 +91,46 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }catch (Exception e){
                     Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show();
                 }
+            }
+            case R.id.btnInicioS:{
+                    final Intent intent = new Intent(this, SeleccionSucursal.class);
+                    String url = "http://"+findViewById(R.id.layoutPrinMain).getTag().toString()+"/sonroll/usuarioWS.php/login/" + ((TextView)findViewById(R.id.txtContraIS)).getText().toString() + "/" + ((TextView)findViewById(R.id.txtCorreoIS)).getText().toString();
+                    RequestQueue queue = Volley.newRequestQueue(this);
+                    JsonArrayRequest jsonObjectRequest = new JsonArrayRequest
+                            (url, new Response.Listener<JSONArray>() {
+
+                                @Override
+                                public void onResponse(JSONArray response) {
+                                    try{
+                                        JSONObject jsonObject = response.getJSONObject(0);
+                                        intent.putExtra("nombre", jsonObject.getString("nombre") + " " + jsonObject.getString("apellidopaterno") + " " + jsonObject.getString("apellidomaterno"));
+                                        intent.putExtra("id", jsonObject.getInt("id"));
+                                        startActivity(intent);
+                                    }catch (Exception e){
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                                        String erroresCompleto = "Alguno de los datos es erroneo";
+                                        builder.setMessage(erroresCompleto);
+                                        builder.setTitle("Errores");
+                                        builder.show();
+
+                                    }
+                                }
+                            }, new Response.ErrorListener() {
+
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    // TODO: Handle error
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                                    String erroresCompleto = "No se ha podido encontrar el usuario";
+                                    builder.setMessage(erroresCompleto);
+                                    builder.setTitle("Errores");
+                                    builder.show();
+                                }
+                            });
+
+                    // Access the RequestQueue through your singleton class.
+                    queue.add(jsonObjectRequest);
+                break;
             }
             default:{
                 break;

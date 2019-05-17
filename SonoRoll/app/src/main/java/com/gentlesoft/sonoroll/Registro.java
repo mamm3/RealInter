@@ -17,16 +17,19 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.gentlesoft.sonoroll.entidades.Usuario;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Registro extends AppCompatActivity implements View.OnClickListener{
-
+    Usuario usuario = new Usuario();
     List<EditText> cajasTexto = new ArrayList<>();
     List<String> errores = new ArrayList<>();
 
@@ -77,27 +80,34 @@ public class Registro extends AppCompatActivity implements View.OnClickListener{
                     dialog.show();
                     errores.clear();
                 }else{
-                    Intent intent = new Intent(this, SeleccionSucursal.class);
+                    final Intent intent = new Intent(this, SeleccionSucursal.class);
                     intent.putExtra("nombre", ((TextView) findViewById(R.id.txtNombres)).getText().toString() + " " + ((TextView) findViewById(R.id.txtApellidos)).getText().toString());
-                    startActivity(intent);
                     String nombre = ((TextView) findViewById(R.id.txtNombres)).getText().toString();
                     String apePat = ((TextView) findViewById(R.id.txtApellidos)).getText().toString().replace(" ", "_").split("_")[0];
                     String apeMat = ((TextView) findViewById(R.id.txtApellidos)).getText().toString().replace(" ", "_").split("_")[1];
                     String telefono = ((TextView) findViewById(R.id.txtTelefono)).getText().toString();
                     String email = ((TextView) findViewById(R.id.txtCorreo)).getText().toString();
                     String psw = ((TextView) findViewById(R.id.txtPsw)).getText().toString();
-                    String url = "http://192.168.0.16/sonroll/usuarioWS.php/"+ nombre +"/" +
+                    String url = "http://"+ findViewById(R.id.layPrinReg).getTag().toString() +"/sonroll/usuarioWS.php/"+ nombre +"/" +
                             apePat+"/" +
                             apeMat+"/" +
                             telefono+"/" +
                             psw+"/" +
                             email+"";
                     RequestQueue queue = Volley.newRequestQueue(this);
-                    JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                            (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                    JsonArrayRequest jsonObjectRequest = new JsonArrayRequest
+                            (url, new Response.Listener<JSONArray>() {
 
                                 @Override
-                                public void onResponse(JSONObject response) {
+                                public void onResponse(JSONArray response) {
+                                    try{
+                                        JSONObject jsonObject = response.getJSONObject(0);
+                                        int id = jsonObject.getInt("id");
+                                        intent.putExtra("id", id);
+                                        startActivity(intent);
+                                    }catch (Exception e){
+
+                                    }
                                 }
                             }, new Response.ErrorListener() {
 

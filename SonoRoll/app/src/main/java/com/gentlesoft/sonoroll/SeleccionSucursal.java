@@ -18,8 +18,9 @@ public class SeleccionSucursal extends AppCompatActivity {
         setContentView(R.layout.activity_seleccion_sucursal);
         Bundle b = getIntent().getExtras();
         String nombre = b.getString("nombre");
+        int id = b.getInt("id");
 
-        ((TextView)findViewById(R.id.txtNombreSelec)).setText("Bien venido : " + nombre + "\nSleccione la sucursal en la que desea ordenar:");
+        ((TextView)findViewById(R.id.txtNombreSelec)).setText("Bienvenido : " + nombre + "\nSleccione la sucursal en la que desea ordenar:");
 
 
         Drawable originalDrawable = getResources().getDrawable(R.drawable.sonora_serdan);
