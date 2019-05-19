@@ -12,6 +12,7 @@ import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -94,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             case R.id.btnInicioS:{
                     final Intent intent = new Intent(this, SeleccionSucursal.class);
-                    String url = "http://"+findViewById(R.id.layoutPrinMain).getTag().toString()+"/sonroll/usuarioWS.php/login/" + ((TextView)findViewById(R.id.txtContraIS)).getText().toString() + "/" + ((TextView)findViewById(R.id.txtCorreoIS)).getText().toString();
+                    String url = "http://"+findViewById(R.id.layoutPrinMain).getTag().toString()+"/sonroll/usuarioWS.php/loginWithCart/" + ((TextView)findViewById(R.id.txtContraIS)).getText().toString() + "/" + ((TextView)findViewById(R.id.txtCorreoIS)).getText().toString();
                     RequestQueue queue = Volley.newRequestQueue(this);
                     JsonArrayRequest jsonObjectRequest = new JsonArrayRequest
                             (url, new Response.Listener<JSONArray>() {
@@ -105,6 +106,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                         JSONObject jsonObject = response.getJSONObject(0);
                                         intent.putExtra("nombre", jsonObject.getString("nombre") + " " + jsonObject.getString("apellidopaterno") + " " + jsonObject.getString("apellidomaterno"));
                                         intent.putExtra("id", jsonObject.getInt("id"));
+                                        intent.putExtra("carritoId", jsonObject.getInt("idCarrito"));
                                         startActivity(intent);
                                     }catch (Exception e){
                                         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
@@ -138,4 +140,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
     }
+
+
 }

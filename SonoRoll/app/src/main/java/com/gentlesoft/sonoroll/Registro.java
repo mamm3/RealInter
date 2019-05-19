@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -64,7 +65,7 @@ public class Registro extends AppCompatActivity implements View.OnClickListener{
                     String erroresCompleto = "";
                     for (String error: errores){
                         if (!error.isEmpty())
-                        erroresCompleto = erroresCompleto + "\n" +error;
+                            erroresCompleto = erroresCompleto + "\n" +error;
                         else erroresCompleto = error;
                     }
                     builder.setMessage(erroresCompleto);
@@ -88,7 +89,7 @@ public class Registro extends AppCompatActivity implements View.OnClickListener{
                     String telefono = ((TextView) findViewById(R.id.txtTelefono)).getText().toString();
                     String email = ((TextView) findViewById(R.id.txtCorreo)).getText().toString();
                     String psw = ((TextView) findViewById(R.id.txtPsw)).getText().toString();
-                    String url = "http://"+ findViewById(R.id.layPrinReg).getTag().toString() +"/sonroll/usuarioWS.php/"+ nombre +"/" +
+                    String url = "http://"+ findViewById(R.id.layPrinReg).getTag().toString() +"/sonroll/usuarioWS.php/withCart/"+ nombre +"/" +
                             apePat+"/" +
                             apeMat+"/" +
                             telefono+"/" +
@@ -104,9 +105,9 @@ public class Registro extends AppCompatActivity implements View.OnClickListener{
                                         JSONObject jsonObject = response.getJSONObject(0);
                                         int id = jsonObject.getInt("id");
                                         intent.putExtra("id", id);
+                                        intent.putExtra("carritoId", jsonObject.getInt("idCarrito"));
                                         startActivity(intent);
                                     }catch (Exception e){
-
                                     }
                                 }
                             }, new Response.ErrorListener() {
@@ -114,7 +115,6 @@ public class Registro extends AppCompatActivity implements View.OnClickListener{
                                 @Override
                                 public void onErrorResponse(VolleyError error) {
                                     // TODO: Handle error
-
                                 }
                             });
 
