@@ -38,8 +38,8 @@
 
         <ImageView
             android:id="@+id/imagenSonora"
-            android:layout_width="360px"
-            android:layout_height="360px"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
             android:layout_gravity="center"
             android:baselineAligned="false" />
     </LinearLayout>

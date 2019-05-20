@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content" />
 
             <Button
-                android:id="@+id/btnCarritoSelecSuc"
+                android:id="@+id/btnCarritoMenuC"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center|right"
@@ -107,6 +107,7 @@
             />
 
         <Button
+            android:id="@+id/btnSushiMC"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_gravity="center|right"

@@ -116,6 +116,7 @@ public class SeleccionSucursal extends AppCompatActivity implements View.OnClick
                 Intent intent = new Intent(this, Menuc.class);
                 intent.putExtra("id", id);
                 intent.putExtra("carritoId", idCarrito);
+                intent.putExtra("nombre", nombre);
                 startActivity(intent);
                 break;
             }
@@ -124,6 +125,7 @@ public class SeleccionSucursal extends AppCompatActivity implements View.OnClick
                 Intent intent = new Intent(this, Menuf.class);
                 intent.putExtra("id", id);
                 intent.putExtra("carritoId", idCarrito);
+                intent.putExtra("nombre", nombre);
                 startActivity(intent);
                 break;
             }
@@ -131,6 +133,7 @@ public class SeleccionSucursal extends AppCompatActivity implements View.OnClick
                 Intent intent = new Intent(this, Menuc.class);
                 intent.putExtra("id", id);
                 intent.putExtra("carritoId", idCarrito);
+                intent.putExtra("nombre", nombre);
                 startActivity(intent);
                 break;
             }
@@ -138,6 +141,40 @@ public class SeleccionSucursal extends AppCompatActivity implements View.OnClick
                 Intent intent = new Intent(this, Menuf.class);
                 intent.putExtra("id", id);
                 intent.putExtra("carritoId", idCarrito);
+                intent.putExtra("nombre", nombre);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btnGuaymasSerdan:{
+                Intent intent = new Intent(this, Menuc.class);
+                intent.putExtra("id", id);
+                intent.putExtra("carritoId", idCarrito);
+                intent.putExtra("nombre", nombre);
+                startActivity(intent);
+                break;
+            }
+
+            case R.id.btnGuaymasCobacha:{
+                Intent intent = new Intent(this, Menuf.class);
+                intent.putExtra("id", id);
+                intent.putExtra("carritoId", idCarrito);
+                intent.putExtra("nombre", nombre);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btnGuaymasSanCarlos:{
+                Intent intent = new Intent(this, Menuc.class);
+                intent.putExtra("id", id);
+                intent.putExtra("carritoId", idCarrito);
+                intent.putExtra("nombre", nombre);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btnGuaymasEmpalme:{
+                Intent intent = new Intent(this, Menuf.class);
+                intent.putExtra("id", id);
+                intent.putExtra("carritoId", idCarrito);
+                intent.putExtra("nombre", nombre);
                 startActivity(intent);
                 break;
             }

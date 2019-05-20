@@ -25,6 +25,7 @@ public class Sushi extends AppCompatActivity implements View.OnClickListener {
 
     int idCarrito;
     int idUsuario;
+    String nombre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class Sushi extends AppCompatActivity implements View.OnClickListener {
          Bundle bundle = getIntent().getExtras();
          idCarrito = bundle.getInt("carritoId");
          idUsuario = bundle.getInt("id");
+         nombre = bundle.getString("nombre");
 
         setContentView(R.layout.activity_sushi);
         findViewById(R.id.layCalifornia).setOnClickListener(this);
@@ -42,6 +44,7 @@ public class Sushi extends AppCompatActivity implements View.OnClickListener {
         findViewById(R.id.btnPhiladelphia).setOnClickListener(this);
         findViewById(R.id.layCielo).setOnClickListener(this);
         findViewById(R.id.btnCielo).setOnClickListener(this);
+        findViewById(R.id.btnCarritoLaySushi).setOnClickListener(this);
 
         String url = "http://"+ findViewById(R.id.layoutSushis ).getTag().toString() + "/sonroll/comidaWS.php/searchByUserIdWithCart/" + idUsuario;
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -125,33 +128,199 @@ public class Sushi extends AppCompatActivity implements View.OnClickListener {
             }
 
             case R.id.layVaquero:{
+
+                String url = "http://"+findViewById(R.id.layoutSushis).getTag().toString()+"/sonroll/comidaWS.php/addComidaToCart/" + idCarrito + "/" + 5;
+                RequestQueue queue = Volley.newRequestQueue(this);
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                // Display the first 500 characters of the response string.
+                                Toast.makeText(Sushi.this, "Se ha hagregado Vaquero al carrito", Toast.LENGTH_SHORT).show();
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+
+                // Access the RequestQueue through your singleton class.
+                queue.add(stringRequest);
+
                 break;
             }
 
             case R.id.btnVaquero:{
+
+                String url = "http://"+findViewById(R.id.layoutSushis).getTag().toString()+"/sonroll/comidaWS.php/addComidaToCart/" + idCarrito + "/" + 5;
+                RequestQueue queue = Volley.newRequestQueue(this);
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                // Display the first 500 characters of the response string.
+                                Toast.makeText(Sushi.this, "Se ha hagregado Vaquero al carrito", Toast.LENGTH_SHORT).show();
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+
+                // Access the RequestQueue through your singleton class.
+                queue.add(stringRequest);
+
                 break;
             }
 
             case R.id.layPhiladelphia:{
+                String url = "http://"+findViewById(R.id.layoutSushis).getTag().toString()+"/sonroll/comidaWS.php/addComidaToCart/" + idCarrito + "/" + 2;
+                RequestQueue queue = Volley.newRequestQueue(this);
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                // Display the first 500 characters of the response string.
+                                Toast.makeText(Sushi.this, "Se ha hagregado Philadelphia al carrito", Toast.LENGTH_SHORT).show();
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+
+                // Access the RequestQueue through your singleton class.
+                queue.add(stringRequest);
+
                 break;
             }
 
             case R.id.btnPhiladelphia:{
+
+                String url = "http://"+findViewById(R.id.layoutSushis).getTag().toString()+"/sonroll/comidaWS.php/addComidaToCart/" + idCarrito + "/" + 2;
+                RequestQueue queue = Volley.newRequestQueue(this);
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                // Display the first 500 characters of the response string.
+                                Toast.makeText(Sushi.this, "Se ha hagregado Philadelphia al carrito", Toast.LENGTH_SHORT).show();
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+
+                // Access the RequestQueue through your singleton class.
+                queue.add(stringRequest);
+
                 break;
             }
 
             case R.id.layCielo:{
+                String url = "http://"+findViewById(R.id.layoutSushis).getTag().toString()+"/sonroll/comidaWS.php/addComidaToCart/" + idCarrito + "/" + 6;
+                RequestQueue queue = Volley.newRequestQueue(this);
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                // Display the first 500 characters of the response string.
+                                Toast.makeText(Sushi.this, "Se ha hagregado Cielo, mar y tierra al carrito", Toast.LENGTH_SHORT).show();
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+
+                // Access the RequestQueue through your singleton class.
+                queue.add(stringRequest);
+
                 break;
             }
 
             case R.id.btnCielo:{
+
+                String url = "http://"+findViewById(R.id.layoutSushis).getTag().toString()+"/sonroll/comidaWS.php/addComidaToCart/" + idCarrito + "/" + 6;
+                RequestQueue queue = Volley.newRequestQueue(this);
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                // Display the first 500 characters of the response string.
+                                Toast.makeText(Sushi.this, "Se ha hagregado Cielo, mar y tierra al carrito", Toast.LENGTH_SHORT).show();
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+
+                // Access the RequestQueue through your singleton class.
+                queue.add(stringRequest);
+
                 break;
             }
 
+
+            case R.id.btnCarritoLaySushi:{
+                Intent intent = new Intent(this, Carrito.class);
+                intent.putExtra("nombre", nombre);
+                intent.putExtra("id", idUsuario);
+                intent.putExtra("carritoId", idCarrito);
+                startActivity(intent);
+                break;
+            }
 
             default:{
                 break;
             }
         }
     }
+
+    public void onResume() {
+        String url = "http://" + findViewById(R.id.layoutSushis).getTag().toString() + "/sonroll/comidaWS.php/searchByUserIdWithCart/" + idUsuario;
+        RequestQueue queue = Volley.newRequestQueue(this);
+        JsonArrayRequest stringRequest = new JsonArrayRequest(url,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray rsponse) {
+                        // Display the first 500 characters of the response string.
+                        try {
+                            JSONObject jsonObject = rsponse.getJSONObject(0);
+                            if (jsonObject.getInt("activo") == 1) {
+                                ((LinearLayout) findViewById(R.id.layCalifornia)).setClickable(false);
+                                ((Button) findViewById(R.id.btnCalifornia)).setVisibility(View.INVISIBLE);
+                                ((LinearLayout) findViewById(R.id.layVaquero)).setClickable(false);
+                                ((Button) findViewById(R.id.btnVaquero)).setVisibility(View.INVISIBLE);
+                                ((LinearLayout) findViewById(R.id.layPhiladelphia)).setClickable(false);
+                                ((Button) findViewById(R.id.btnPhiladelphia)).setVisibility(View.INVISIBLE);
+                                ((LinearLayout) findViewById(R.id.layCielo)).setClickable(false);
+                                ((Button) findViewById(R.id.btnCielo)).setVisibility(View.INVISIBLE);
+                            }
+
+                        } catch (Exception e) {
+
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        // Access the RequestQueue through your singleton class.
+        queue.add(stringRequest);
+
+        super.onResume();
+    }
+
 }

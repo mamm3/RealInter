@@ -9,6 +9,7 @@ public class Menuc extends AppCompatActivity implements View.OnClickListener {
 
     int idCarro;
     int idUsuario;
+    String nombre;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,10 +17,13 @@ public class Menuc extends AppCompatActivity implements View.OnClickListener {
 
 
         findViewById(R.id.laySushisMenuC).setOnClickListener(this);
+        findViewById(R.id.btnCarritoMenuC).setOnClickListener(this);
+        findViewById(R.id.btnSushiMC).setOnClickListener(this);
 
         Bundle bundle = getIntent().getExtras();
         idCarro = bundle.getInt("carritoId");
         idUsuario = bundle.getInt("id");
+        nombre = bundle.getString("nombre");
     }
 
     public void onClick(final View v){
@@ -28,6 +32,23 @@ public class Menuc extends AppCompatActivity implements View.OnClickListener {
                 Intent intent = new Intent(this, Sushi.class);
                 intent.putExtra("carritoId", idCarro);
                 intent.putExtra("id", idUsuario);
+                intent.putExtra("nombre", nombre);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btnSushiMC:{
+                Intent intent = new Intent(this, Sushi.class);
+                intent.putExtra("carritoId", idCarro);
+                intent.putExtra("id", idUsuario);
+                intent.putExtra("nombre", nombre);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btnCarritoMenuC:{
+                Intent intent = new Intent(this, Carrito.class);
+                intent.putExtra("nombre", nombre);
+                intent.putExtra("id", idUsuario);
+                intent.putExtra("carritoId", idCarro);
                 startActivity(intent);
                 break;
             }
